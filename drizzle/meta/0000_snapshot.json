@@ -1,0 +1,306 @@
+{
+  "id": "c511bf83-bd80-4069-8295-b9f866c7be10",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.books_to_authors": {
+      "name": "books_to_authors",
+      "schema": "",
+      "columns": {
+        "book_id": {
+          "name": "book_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "author_id": {
+          "name": "author_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "books_to_authors_book_id_book_id_fk": {
+          "name": "books_to_authors_book_id_book_id_fk",
+          "tableFrom": "books_to_authors",
+          "tableTo": "book",
+          "columnsFrom": [
+            "book_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "books_to_authors_author_id_author_id_fk": {
+          "name": "books_to_authors_author_id_author_id_fk",
+          "tableFrom": "books_to_authors",
+          "tableTo": "author",
+          "columnsFrom": [
+            "author_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "books_to_authors_book_id_author_id_pk": {
+          "name": "books_to_authors_book_id_author_id_pk",
+          "columns": [
+            "book_id",
+            "author_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.books_to_genres": {
+      "name": "books_to_genres",
+      "schema": "",
+      "columns": {
+        "book_id": {
+          "name": "book_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "genre_id": {
+          "name": "genre_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "books_to_genres_book_id_book_id_fk": {
+          "name": "books_to_genres_book_id_book_id_fk",
+          "tableFrom": "books_to_genres",
+          "tableTo": "book",
+          "columnsFrom": [
+            "book_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "books_to_genres_genre_id_genre_id_fk": {
+          "name": "books_to_genres_genre_id_genre_id_fk",
+          "tableFrom": "books_to_genres",
+          "tableTo": "genre",
+          "columnsFrom": [
+            "genre_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "books_to_genres_book_id_genre_id_pk": {
+          "name": "books_to_genres_book_id_genre_id_pk",
+          "columns": [
+            "book_id",
+            "genre_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.author": {
+      "name": "author",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "biography": {
+          "name": "biography",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.book": {
+      "name": "book",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "isbn": {
+          "name": "isbn",
+          "type": "varchar(13)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.genre": {
+      "name": "genre",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.member": {
+      "name": "member",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address": {
+          "name": "address",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.rental": {
+      "name": "rental",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "memberId": {
+          "name": "memberId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bookId": {
+          "name": "bookId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rentedAt": {
+          "name": "rentedAt",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "returnedAt": {
+          "name": "returnedAt",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
